@@ -1,0 +1,5 @@
+* Parsec
+A simple parser combinator library written in Python.
+
+*NOTE! This library is not production-ready*
+I built this to use in my personal projects
