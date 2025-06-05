@@ -239,12 +239,12 @@ def pure(r):
     return PureParser(r)
 
 
-def string(s: string):
+def string(s: str) -> Parser:
     return StringParser(s)
 
 
-def regex(s: string):
-    return RegexParser(s)
+def regex(pattern: str) -> Parser:
+    return RegexParser(pattern)
 
 
 def letters():
