@@ -181,6 +181,7 @@ class KleeneParser(Parser):
     def parse_with_context(self, ctx: ParsingContext) -> ParsingContext:
         match_count = 0
         results = []
+        original_ctx = ctx
         while True:
             local_ctx = self.parser.parse_with_context(ctx)
             if local_ctx.failed:
@@ -189,7 +190,7 @@ class KleeneParser(Parser):
             match_count += 1
             results += [ctx.result]
         if match_count < self.min:
-            return ctx.fail(
+            return original_ctx.fail(
                 f"expected to match at least {self.min}x but matched {match_count}x"
             )
         return ctx.update_result(results)

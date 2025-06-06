@@ -71,6 +71,7 @@ class TestCombinatorialParsing(unittest.TestCase):
 
         ctx = parser.parse("123")
         self.assertTrue(ctx.failed)
+        self.assertEqual(ctx.position, 0)
 
     def test_letters_parser(self):
         parser = letters()
